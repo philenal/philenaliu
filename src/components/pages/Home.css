@@ -62,6 +62,7 @@
         display: table;
   } */
 .Home-page {
+  background-color: var(--baby-powder);
 }
   .Home-sticky {
     position: fixed !important;
@@ -74,12 +75,16 @@
     flex-direction: column;
     justify-content: flex-start;
 }
-
+.Home-title {
+  font-family: 'Playfair Display', serif;
+  color: var(--linen);
+  font-size: var(--xl);
+}
 .Home-background {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background: rgba(243, 216, 199, 0.2);
+    background-color: /* rgba(243, 216, 199, 0.2); */rgba(153, 115, 95, 0.466)
 }
 
 .Home-transition {
@@ -94,7 +99,7 @@ background: linear-gradient(0deg, var(--linen) 0%, rgba(243,216,199,0.2) 100%);
   justify-content: space-around;
   flex-direction: column;
   font-size: var(--xs);
-  color: var(--silver-pink);
+  color: var(--linen);
   font-family: 'Lato', sans-serif;
 }
 .Home-typing {
@@ -105,5 +110,6 @@ background: linear-gradient(0deg, var(--linen) 0%, rgba(243,216,199,0.2) 100%);
   -webkit-filter: blur(1px); */
   opacity: 50%;
   transform: rotate(-1deg);
+  filter:hue-rotate(10deg);
 
 }

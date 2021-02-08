@@ -33,7 +33,7 @@ class Home extends Component {
                 <div onScroll={this.handleScroll} className="Home-page">
                     <div className="Home-container">
                         <ScrollAnimation animateIn="fadeIn">
-                            <div className="title Home-padding">
+                            <div className="Home-title Home-padding">
                             hi,
                             </div>
                         </ScrollAnimation>
