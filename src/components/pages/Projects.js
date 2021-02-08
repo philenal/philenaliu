@@ -95,7 +95,18 @@ function Projects() {
                                 <div className="Projects-title">PROMYS math research</div>
                             </div>
                         </button>
-                        
+                        <button className="Projects-card" onClick={()=> {
+                            setModalShow("chinese culture connection");
+                            setYear("2019")
+                            setBody("worked in group of 4 at PROMYS to create conjectures about the fibonacci numbers and build their proofs without reference to external resources");
+                            setUsed("used LaTeX for the write-up.")
+                            setImage("promys")
+                            }}>
+                            <img src={promys} alt="promys" className="Projects-image" width="500px" height="500px"></img>
+                            <div className="Projects-overlay">
+                                <div className="Projects-title">PROMYS math research</div>
+                            </div>
+                        </button>
                     </div>
                 {/* <div className="Projects-titleRow">
                     <button className="Projects-title1">
