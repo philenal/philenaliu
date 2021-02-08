@@ -1,0 +1,109 @@
+/* https://css-tricks.com/snippets/css/typewriter-effect/ */
+/* .Home-typewriter {
+    overflow: hidden; 
+    border-right: .05em solid var(--linen); 
+    padding-right: .3em;
+    white-space: nowrap;
+    width: min-content;
+    animation: 
+      typing 3.5s steps(40, end),
+      blink-caret 1s step-end infinite;
+  } */
+  .Home-border {
+    height: 1em !important;
+    border-right: .05em solid var(--linen); 
+    padding-right: .3em;
+    margin-right: .3em;
+    align-self: center;
+    animation: blink-caret 1s step-end infinite;
+  }
+  @-webkit-keyframes blink-caret {    
+    0% {    
+        border-color: transparent    
+    }    
+    50% {    
+        border-color: var(--linen)  
+    }    
+}    
+@keyframes blink-caret {    
+    0% {    
+        border-color: transparent;    
+    }    
+    50% {    
+        border-color: var(--linen)   
+    }    
+}  
+  .Home-nameBackground {
+    background: rgba(243, 216, 199, 0.2);
+  }
+
+  .Home-padding {
+    padding-left: var(--xl);/* var(--s); */
+  }
+  
+ /*  .Home-keyboard {
+    background-attachment: fixed;
+    background-repeat: no-repeat !important;
+    background-size: contain;
+    background-position: center center !important;
+    height: 100%;
+    width: 100%;
+    background-image: url('../../../src/newTyping.gif') !important;
+  } */
+ /*  .Home-fixed {
+    background-attachment: fixed;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center center;
+        height: 100%;
+        width: 100%;
+        color: white;
+        text-align: right;
+        display: table;
+  } */
+.Home-page {
+}
+  .Home-sticky {
+    position: fixed !important;
+  }
+.Home-container {
+    padding-top: 1em;
+    text-align: left;
+    /* width: min-content; */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.Home-background {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background: rgba(243, 216, 199, 0.2);
+}
+
+.Home-transition {
+  background: var(--linen);
+background: linear-gradient(0deg, var(--linen) 0%, rgba(243,216,199,0.2) 100%);
+}
+
+.Home-bio {
+  height: 1em !important;
+  align-self: center;
+  display: inline-flex;
+  justify-content: space-around;
+  flex-direction: column;
+  font-size: var(--xs);
+  color: var(--silver-pink);
+  font-family: 'Lato', sans-serif;
+}
+.Home-typing {
+    /* object-fit: 
+    margin-top: 0; */
+    width: 90%;
+    /* filter: blur(1px);
+  -webkit-filter: blur(1px); */
+  opacity: 50%;
+  transform: rotate(-1deg);
+
+}

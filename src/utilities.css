@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&family=Playfair+Display:wght@800&display=swap');
+
+:root {
+  --primary: #396dff;
+  --primary--dim: #6987db;
+  --darkgrey: #d4d4d4;
+  --medgrey: #e0e0e0;
+  --grey: #f7f7f7;
+  --white: #fff;
+
+  --silver-pink: #d0b8acff;
+  --unbleached-silk: #f3d8c7ff;
+  --pale-pink: #f1d1d1ff;
+  --linen: #efe5dcff;
+  --baby-powder: #fbfefbff;
+
+  --background: rgba(243, 216, 199, 0.2);
+  --xs: 20px;
+  --s: 24px;
+  --m: 36px;
+  --l: 72px;
+  --xl: 144px;
+  --xxl: 288px;
+}
+
+.title {
+  font-family: 'Playfair Display', serif;
+  color: var(--linen);
+  font-size: var(--xl);
+}
+.ProjectModal-title {
+  font-family: 'Playfair Display', serif;
+  width: 100%;
+  color: var(--linen);
+  font-size: var(--l);
+  text-align: center;
+  margin: auto;
+}
+.ProjectModal-body {
+  padding: var(--s) 0px;
+}
+.ProjectModal-image > img {
+  width: 100% !important;
+}
+.ProjectModal-image {
+  padding-left: var(--s);
+}
+.ProjectModal-grid {
+  padding: var(--s);
+}
+
+h4 {
+  font-family: 'Lato', sans-serif;
+  color: var(--silver-pink);
+  font-size: var(--s);
+  font-style: italic;
+}
+
+p {
+  font-family: 'Lato', sans-serif;
+  color: var(--silver-pink);
+  font-size: var(--s);
+}
+.break {
+  height: 25vh;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Lato', sans-serif;
+  font-weight: 300;
+}
+
+form {
+  flex-grow: 1;
+}
+
+.u-flex {
+  display: flex;
+}
+
+button {
+  border: none;
+  background: transparent;
+}
+.u-flexColumn {
+  display: flex;
+  flex-direction: column;
+}
+
+.u-flex-justifyCenter {
+  justify-content: center;
+}
+
+.u-flex-alignCenter {
+  align-items: center;
+}
+
+.u-inlineBlock {
+  display: inline-block;
+}
+
+.u-bold {
+  font-weight: 600;
+}
+
+.u-textCenter {
+  text-align: center;
+}
+
+.u-relative {
+  position: relative;
+}
+
+.u-pointer {
+  cursor: pointer;
+}
+
+.u-link {
+  color: var(--primary);
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.u-link:hover {
+  color: var(--primary--dim);
+}

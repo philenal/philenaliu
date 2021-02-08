@@ -1,0 +1,101 @@
+
+.About-key {
+    width: 80px;
+    margin: var(--s);
+    /* filter: grayscale(200%); */
+  }
+  
+  .About-filler {
+    /* display: flex;
+    flex-wrap: wrap; */
+    position: relative;
+    padding: 0 var(--xl);
+    width: 100%;
+    background: /* var(--background); */white;
+  }
+
+  .About-title {
+      position: absolute;
+      text-align: right;
+      /* width: 100%; */
+      /* padding-right: var(--xxl); */
+      /* margin-right: var(--xxl); */
+      font-size: var(--xxl);
+      color: var(--linen);
+      z-index: 3;
+      font-family: 'Playfair Display', serif;
+  }
+  
+  .About-filler-1, .About-filler-2, .About-filler-3 {
+    padding-bottom: var(--l);
+    width: 100%;
+  }
+  .About-filler-1 {
+    justify-content: space-evenly;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .About-filler-2 {
+    justify-content: space-between;
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .About-filler-3 {
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+
+  .About-blurb {
+      color: var(--silver-pink);
+      background: rgb(255, 255, 255);/* var(--silver-pink); */
+      height: min-content;
+  }
+  .About-header {
+    font-family: 'Playfair Display', serif;
+  }
+  .About-square {
+    /* text-align: center; */
+    padding: var(--m);
+    position: absolute;
+    margin-top: -144px;
+    font-size: var(--xs);
+    /* margin-top: calc(-var(--xl)); */
+    width: 500px;
+    /* height: 500px; */
+    margin-left: var(--xl);
+    background-color: var(--baby-powder);
+  }
+
+ /*  .About-badminton {
+      width: 500px;
+      object-fit: contain;
+  } */
+  .fixed {
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 100%;
+    width: 100%;
+    color: white;
+    text-align: right;
+    display: table;
+    /* padding: 10px 10px; */
+  }
+  .About-badminton {
+    background-attachment: fixed;
+    background-repeat: no-repeat !important;
+    background-size: cover;
+    background-position: center 20% !important;
+    height: 100%;
+    width: 100%;
+    background-image: url('../../../src/badminton.gif') !important;
+}
+
+.About-page {
+  height: 100vh;
+  overflow-y: scroll;
+}
+

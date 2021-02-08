@@ -1,0 +1,74 @@
+.Sketches-title1 {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--xl);
+    color: var(--linen);
+    margin: auto;
+    margin-bottom: var(--l);
+    margin-top: var(--l);
+}
+.Sketches-card > img {
+    height: 250px;
+    width: 250px;
+}
+.Sketches-page {
+    /* padding-left: var(--xl); */
+    display: flex;
+    flex-direction: column;
+    background: var(--silver-pink);
+}
+
+.Sketches-border {
+    border-width: var(--m);
+}
+.Sketches-titleRow {
+    display: flex;
+    flex-direction: row;
+}
+.Sketches-sketches {
+    margin: auto;
+    width: 75%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.Sketches-card {
+    position: relative;
+    padding: 0;
+    background-color: var(--baby-powder);
+}
+.Sketches-image {
+    display: block;
+}
+.Sketches-card:hover .Sketches-overlay {
+    opacity: 1;
+  }
+
+.Sketches-overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: var(--baby-powder);
+  }
+.Sketches-title {
+    font-family: 'Lato', sans-serif;
+    color: var(--unbleached-silk);
+    font-size: var(--m);
+    z-index: 99;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .Sketches-image {
+    filter: grayscale(1);
+  }
