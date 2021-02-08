@@ -4,6 +4,7 @@ import Modal from 'react-bootstrap/Modal';
 import pixonaryDark from "../../../src/pixonaryDark.PNG";
 import pixonaryLight from "../../../src/pixonaryLight.PNG";
 import roboarm from "../../../src/roboarm.PNG";
+import ccc from "../../../src/ccc.PNG";
 import newRobotArm from "../../../src/newRobotArm.PNG";
 import modeling from "../../../src/modeling.PNG";
 import promys from "../../../src/promys.PNG";
@@ -33,6 +34,9 @@ export default function ProjectModal(props) {
     
   } else if (props.image=="promys") {
     image=promys
+    link=promysPdf
+  } else if (props.image=="ccc") {
+    image=ccc
     link=promysPdf
   } else {
     image=""

@@ -4,6 +4,7 @@ import ProjectModal from "../modules/ProjectModal";
 import pixonaryDark from "../../../src/pixonaryDark.PNG";
 import pixonaryLight from "../../../src/pixonaryLight.PNG";
 import roboarm from "../../../src/roboarm.PNG";
+import ccc from "../../../src/ccc.PNG";
 import newRobotArm from "../../../src/newRobotArm.PNG";
 import modeling from "../../../src/modeling.PNG";
 import promys from "../../../src/promys.PNG";
