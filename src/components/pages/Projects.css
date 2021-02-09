@@ -9,6 +9,16 @@
     color: var(--silver-pink);
 }
 
+.Projects-skills {
+    
+}
+.Projects-skill {
+    padding: 0 var(--s) var(--s) var(--m);
+    font-family: 'Lato', sans-serif;
+    color: var(--silver-pink);
+    font-size: var(--s);
+    text-align: center;
+}
 .Projects-page {
     /* padding-left: var(--xl); */
     display: flex;

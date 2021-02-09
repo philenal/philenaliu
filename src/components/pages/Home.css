@@ -84,7 +84,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    background-color: /* rgba(243, 216, 199, 0.2); */rgba(153, 115, 95, 0.466)
+    background-color: rgba(243, 216, 199, 0.2);/* rgba(153, 115, 95, 0.466) */
 }
 
 .Home-transition {
@@ -99,7 +99,7 @@ background: linear-gradient(0deg, var(--linen) 0%, rgba(243,216,199,0.2) 100%);
   justify-content: space-around;
   flex-direction: column;
   font-size: var(--xs);
-  color: var(--linen);
+  color: var(--silver-pink);
   font-family: 'Lato', sans-serif;
 }
 .Home-typing {

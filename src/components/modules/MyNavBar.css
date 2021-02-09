@@ -10,7 +10,7 @@
 }
 
 .navbar-nav .nav-link.active {
-    border-bottom: 3px solid var(--pale-pink) !important;
+    border-bottom: 3px solid var(--silver-pink) !important;
     transition: border-bottom .5s ease-in-out !important;
 }
 
@@ -19,7 +19,7 @@
     font-size: var(--s);
     padding: var(--xs);
     font-family: 'Playfair Display', serif;
-    color: var(--silver-pink) !important;
+    color: var(--linen) !important;
 }
 
 .MyNavBar-bottomMargin{
