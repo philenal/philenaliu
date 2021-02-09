@@ -17,17 +17,18 @@ class App extends Component {
           <Home/>
         </div>
         <div id="projects">
+          <Spring/>
+        </div>
+        {/* <div id="projects">
           <Projects/>
         </div>
         <div id="sketches">
           <Sketches/>
-        </div>
+        </div> */}
         <div id="about">
           <About/>
         </div>
-        <div id="about">
-          <Spring/>
-        </div>
+        
         <div id="resume">
           <Resume/>
         </div>

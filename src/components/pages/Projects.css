@@ -6,12 +6,19 @@
     margin-top: var(--l);
     margin-bottom: var(--s);
 }
-
+.Projects-sketches {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: 'Playfair Display', serif;
+    font-size: var(--xl);
+    color: var(--silver-pink);
+}
 .Projects-skills {
     display: flex;
     justify-content: center;
     width: 20ch;
     margin: auto;
+    margin-top: 0;
     border-top: solid;
     border-bottom: solid;
     border-width: 2px;
@@ -25,6 +32,18 @@
     color: var(--baby-powder);
     font-size: var(--s);
     text-align: center;
+}
+.Projects-click {
+    padding-top: var(--m);
+    color: var(--silver-pink);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: var(--s);
+    height: min-content;
+    font-family: 'Lato', sans-serif;
+    background-color: var(--baby-powder);
 }
 .Projects-page {
     /* padding-left: var(--xl); */
@@ -53,6 +72,7 @@
 }
 .Projects-projects {
     margin: auto;
+    margin-top: 0;
     width: 75%;
     display: flex;
     justify-content: center;

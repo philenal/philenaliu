@@ -24,8 +24,11 @@ import girl from "../../../src/art/girl.gif";
 import indonesia from "../../../src/art/indonesia.jpg";
 import jongsuk from "../../../src/art/jongsuk.JPG";
 import badminton from "../../../src/art/badminton.GIF";
+import Typewriter from 'typewriter-effect';
+
 function Sketches() {
     const [image, setImage] = React.useState("");
+    const skills = ["procreate", "traditional", "animation", "photoshop"]
         return (
             <>
             <SketchesModal
@@ -33,10 +36,40 @@ function Sketches() {
             onHide={() => setImage("")}
             image={image}
             />
+            <div className="u-flex">
+            <div className="Sketches-click">
+                click to see
+                <div className="Sketches-projects">projects</div>
+            </div>
+            
             <div className="Sketches-page">
                <div className="Sketches-title1">
                         sketches
                     </div> 
+                    <div className="Sketches-skills">
+                    <Typewriter
+                    onInit={(typewriter) => {
+                        for (let i = 0; i < skills.length-1; i ++){
+                            typewriter.typeString(skills[i])
+                            .pauseFor(500)
+                            .deleteAll()
+                        }
+                        typewriter.typeString(skills[skills.length-1])
+                        .pauseFor(2500)
+                        .deleteAll()
+                        .callFunction(() => {
+                            console.log('All strings were deleted');
+                        })
+                        .start();
+                    }}
+                    options={{
+                        wrapperClassName: "Projects-skill",
+                        cursorClassName: "Projects-skill",
+                        autoStart: true,
+                        loop: true
+                    }}
+                    /> 
+                    </div>
                     <div className="Sketches-sketches">
                         <button className="Sketches-card" 
                         onClick={()=> {
@@ -247,9 +280,15 @@ function Sketches() {
                         </button>
                         
                     </div>
+                
                 <div className="break"></div>
             </div>
-</>
+            <div className="Sketches-click">
+                click to see
+                <div className="Sketches-projects">projects</div>
+            </div>
+            </div>
+</>     
         );
 }
 

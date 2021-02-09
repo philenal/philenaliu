@@ -3,8 +3,40 @@
     font-size: var(--xl);
     color: var(--linen);
     margin: auto;
-    margin-bottom: var(--l);
+    margin-bottom: var(--s);
     margin-top: var(--l);
+}
+.Sketches-projects {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    font-family: 'Playfair Display', serif;
+    font-size: var(--xl);
+    color: var(--linen);
+}
+.Sketches-skills {
+    display: flex;
+    justify-content: center;
+    width: 20ch;
+    margin: auto;
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: var(--linen);
+    margin-bottom: var(--s);
+    padding: .5em 0;
+}
+
+.Sketches-click {
+    padding-top: var(--m);
+    color: var(--silver-pink);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: var(--s);
+    height: min-content;
+    font-family: 'Lato', sans-serif;
+    background-color: var(--baby-powder);
 }
 .Sketches-card > img {
     height: 250px;

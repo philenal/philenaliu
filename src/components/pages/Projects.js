@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Carousel from 'react-bootstrap/Carousel'
 import "./Projects.css";
 import ProjectModal from "../modules/ProjectModal";
 import pixonaryDark from "../../../src/pixonaryDark.PNG";
@@ -29,6 +28,11 @@ function Projects() {
             used={used}
             image={image}
       />
+      <div className="u-flex">
+          <div className="Projects-click">
+              click to see
+            <div className="Projects-sketches">sketches</div>
+            </div>
             <div className="Projects-page">
                 <div className="Projects-title1">
                         projects
@@ -150,6 +154,11 @@ function Projects() {
                     </div>
                 </div> */}
                 <div className="break"></div>
+            </div>
+            <div className="Projects-click">
+              click to see
+            <div className="Projects-sketches">sketches</div>
+            </div>
             </div>
 </>
         );
