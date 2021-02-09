@@ -9,7 +9,7 @@ import ccc from "../../../src/ccc.PNG";
 import newRobotArm from "../../../src/newRobotArm.PNG";
 import modeling from "../../../src/modeling.PNG";
 import promys from "../../../src/promys.PNG";
-import ScriptTag from 'react-script-tag';
+import Typewriter from 'typewriter-effect';
 
 function Projects() {
     const [modalShow, setModalShow] = React.useState("");
@@ -17,7 +17,7 @@ function Projects() {
     const [year, setYear] = React.useState("");
     const [body, setBody] = React.useState("");
     const [used, setUsed] = React.useState("");
-    
+    const skills = ['reactjs', 'python', 'javascript', 'css', 'html', 'html5 canvas', 'LaTeX', 'mongoDB', 'mathletsjs', 'bootstrap', 'materialui', 'threejs', 'sagemath', 'express'];
         return (
             <>
             <ProjectModal
@@ -32,23 +32,31 @@ function Projects() {
             <div className="Projects-page">
                 <div className="Projects-title1">
                         projects
-                    </div> 
-                    <Carousel>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> reactjs </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> python </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> javascript </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> css </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> html </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> html5 canvas </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> LaTeX </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> mongoDB </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> mathletsjs </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> bootstrap </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> materialui </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> threejs </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> sagemath </div></Carousel.Item>
-                <Carousel.Item interval={1000}><div className="Projects-skill"> express </div></Carousel.Item>
-                </Carousel>
+                </div>
+                <div className="Projects-skills">
+                <Typewriter
+                    onInit={(typewriter) => {
+                        for (let i = 0; i < skills.length-1; i ++){
+                            typewriter.typeString(skills[i])
+                            .pauseFor(500)
+                            .deleteAll()
+                        }
+                        typewriter.typeString(skills[skills.length-1])
+                        .pauseFor(2500)
+                        .deleteAll()
+                        .callFunction(() => {
+                            console.log('All strings were deleted');
+                        })
+                        .start();
+                    }}
+                    options={{
+                        wrapperClassName: "Projects-skill",
+                        cursorClassName: "Projects-skill",
+                        autoStart: true,
+                        loop: true
+                    }}
+                    /> 
+                </div>
                     <div className="Projects-projects">
                         <button className="Projects-card" 
                         onClick={()=> {

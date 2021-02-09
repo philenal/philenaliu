@@ -2,36 +2,50 @@
     font-family: 'Playfair Display', serif;
     font-size: var(--xl);
     color: var(--baby-powder);
-}
-.Projects-title2 {
-    font-family: 'Playfair Display', serif;
-    font-size: var(--xl);
-    color: var(--silver-pink);
+    margin: auto;
+    margin-top: var(--l);
+    margin-bottom: var(--s);
 }
 
 .Projects-skills {
-    
+    display: flex;
+    justify-content: center;
+    width: 20ch;
+    margin: auto;
+    border-top: solid;
+    border-bottom: solid;
+    border-width: 2px;
+    border-color: var(--linen);
+    margin-bottom: var(--s);
+    padding: .5em 0;
 }
 .Projects-skill {
-    padding: 0 var(--s) var(--s) var(--m);
+    /* padding: 0 var(--s) var(--s) var(--m); */
     font-family: 'Lato', sans-serif;
-    color: var(--silver-pink);
+    color: var(--baby-powder);
     font-size: var(--s);
     text-align: center;
 }
 .Projects-page {
     /* padding-left: var(--xl); */
+    width: 100%;
     display: flex;
     flex-direction: column;
-    background: var(--linen);
-}
-.Projects-title1 {
-    margin: auto;
-    margin-bottom: var(--l);
-    margin-top: var(--l);
+    background: var(--silver-pink);
 }
 .Projects-border {
     border-width: var(--m);
+}
+.Projects-line {
+    border-width: 2px;
+    border-color: var(--unbleached-silk);
+    height: 2px;
+    width: 10%;
+    margin: auto;
+    margin-bottom: var(--s);
+    color: var(--unbleached-silk);
+    background-color: var(--unbleached-silk);
+    
 }
 .Projects-titleRow {
     display: flex;

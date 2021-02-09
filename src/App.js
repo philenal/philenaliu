@@ -6,6 +6,7 @@ import About from "./components/pages/About.js";
 import Resume from "./components/pages/Resume.js";
 import Sketches from "./components/pages/Sketches.js";
 import Projects from "./components/pages/Projects.js";
+import Spring from "./components/pages/Spring.js";
 import MyNavBar from "./components/modules/MyNavBar.js";
 class App extends Component {
   render() {
@@ -23,6 +24,9 @@ class App extends Component {
         </div>
         <div id="about">
           <About/>
+        </div>
+        <div id="about">
+          <Spring/>
         </div>
         <div id="resume">
           <Resume/>
