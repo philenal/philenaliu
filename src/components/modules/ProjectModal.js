@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import React from "react";
 import Modal from 'react-bootstrap/Modal';
 import pixonaryLight from "../../../src/pixonaryLight.PNG";
 import roboarm from "../../../src/roboarm.PNG";
@@ -8,9 +7,6 @@ import newRobotArm from "../../../src/newRobotArm.PNG";
 import modeling from "../../../src/modeling.PNG";
 import promys from "../../../src/promys.PNG";
 import promysPdf from "../links/Fibonacci_Numbers_Exploration_Lab (1).pdf";
-/* import canvasRobotArmLink from "../links/Robot Arm.html"; */
-//TODO: look into symlink https://dev.to/unorthodev/utilizing-symbolic-links-in-your-node-js-projects-17bo
-//to fix links
 
 export default function ProjectModal(props) {
   let link;
