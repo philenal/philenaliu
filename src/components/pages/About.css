@@ -15,6 +15,7 @@
   }
 
   .About-title {
+      margin-left: var(--xl);
       position: absolute;
       text-align: right;
       /* width: 100%; */
@@ -22,10 +23,16 @@
       /* margin-right: var(--xxl); */
       font-size: var(--xxl);
       color: var(--linen);
-      z-index: 3;
+      z-index: 1;
       font-family: 'Playfair Display', serif;
   }
-  
+  .About-hobbies {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--xl);
+    color: var(--silver-pink);
+    z-index: 1;
+    /* background: var(--linen); */
+  }
   .About-filler-1, .About-filler-2, .About-filler-3 {
     padding-bottom: var(--l);
     width: 100%;
