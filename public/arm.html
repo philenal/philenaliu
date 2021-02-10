@@ -1,0 +1,703 @@
+<html>
+
+<head>
+     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+
+    <!-- The loading of KaTeX is deferred to speed up page rendering -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+
+    <!-- To automatically render math in text elements, include the auto-render extension: -->
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+        onload="renderMathInElement(document.body);"></script>
+
+    <script>
+   
+    </script>
+
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Didact Gothic">
+    <title>Robot Arm</title>
+    <style type="text/css">
+        #angle {
+            /*position: absolute;
+        top: 0px;
+        right: 0px;*/
+            display: none;
+        }
+
+        #graph {
+            display: inline;
+            margin: 20px;
+        }
+
+        #arm {
+            /*position: absolute;
+        top: 100px;
+        left: 200px;*/
+            /*
+        background-color: #FFFBDB;*/
+            margin: 20px;
+        }
+
+        body {
+            background-color: #878E88;
+        }
+
+        #angleLabel, #linApprox {
+            padding: 10px;
+            font-family: "Didact Gothic";
+            text-shadow: 1px 1px 2px;
+            color: #FFFBDB;
+            font-size: 30px;
+        }
+        #explan {
+            padding: 10px;
+            font-family: "Didact Gothic";
+            color: #FFFBDB;
+            font-size: 20px;
+        }
+
+        #Options,
+        #g,
+        #s {
+            font-family: "Didact Gothic";
+            font-size: 20px;
+        }
+
+        form {
+            padding: 10px;
+        }
+
+        #face {
+            /*position: absolute;
+        top: 0px;
+        left: 0px;*/
+            display: inline;
+        }
+    </style>
+    <script type="text/javascript">
+        function changed() {
+            if (document.getElementById("s").selected) {
+                document.getElementById("graph").style.display = "none";
+                document.getElementById("angle").style.display = "inline";
+            } else if (document.getElementById("g").selected) {
+                document.getElementById("angle").style.display = "none";
+                document.getElementById("graph").style.display = "inline";
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <h1 style="font-family: Didact Gothic; text-align: center; color: #FFFBDB; text-shadow: 1px 1px 2px; font-size: 50px"> Robot Arm </h1>
+    <!-- user input stuff -->
+    <!-- show angle label -->
+
+
+    <div id="angleLabel">
+        Show angle labels: <input type="checkbox" id="check">
+    </div>
+    <div id = "linApprox">
+        Show Linear Approximation: <input type="checkbox" id="linA">
+    </div>
+    <div id = "explan"> The Linear Approximation Tool generates a line segment indicating the shift in position of the tip of the arm through calculating the linear approximation using its respective shift in theta values. Linear approximation is most accurate for small changes in theta values, as seen when you try out the tool!</div>
+
+
+
+    <!-- makes options for visualization. add js to interact by making one hidden. document.getElementById(id).style.property = new style -->
+    <form>
+        <select onchange="changed()" id="Options">
+            <option id="g">Graph</option>
+            <option id="s">Sliders</option>
+        </select>
+    </form>
+
+    <canvas id="arm" width="700" height="800" style="background-color:  #FFFBDB; border-radius: 30px"></canvas>
+    <canvas id="angle" width="600" height="600"></canvas>
+    <canvas id="graph" width="800" height="800" style="background-color: #FFFBDB; border-radius: 30px"></canvas>
+
+    <script type="text/javascript">
+        var graph = document.getElementById("graph");
+        var c_graph = graph.getContext("2d");
+        var circle = [175, 625];
+        var circleY = [75,625];
+        var circleX = [175,725];
+        var drag = false;
+        var mousePos = {
+            x: 175,
+            y: 600
+        };
+
+        /*event listeners*/
+        graph.addEventListener('mousedown', function(e) {
+            drag = true;
+            if (drag && (getMousePos(graph, e).x <= 625) && getMousePos(graph, e).x >= 175 && getMousePos(graph, e).y >= 175 && getMousePos(graph, e).y <= 625) {
+                startPos1 = getMousePos(graph, e);
+                mousePos = getMousePos(graph, e);
+                allMove(e, false, false, true);
+            }
+            else if (drag){
+                
+                if (getMousePos(graph, e).x<=100 && getMousePos(graph, e).x >=50 && getMousePos(graph, e).y>=175 && getMousePos(graph, e).y<=625){
+                    startPos1.y= getMousePos(graph, e).y;
+                    startPos1.x=circle[x];
+                    mousePos = getMousePos(graph, e);
+                    allMove(e, false, true, false);
+                    
+                }
+                else if(getMousePos(graph, e).y >=700 && getMousePos(graph, e).y <=750 && getMousePos(graph, e).x>=175 && getMousePos(graph, e).x<=625){
+                    startPos1.x = getMousePos(graph,e).x;
+                    startPos1.y = circle[y];
+                    mousePos = getMousePos(graph, e);
+                    allMove(e, true, false, true);
+
+            }
+        }
+        }, false);
+
+        /*if it's dragging (mouse down) and the mouse is within the grid, then draw the new circle where the mouse is. if not within grid, just draw where the mouse was last in it.*/
+        graph.addEventListener('mousemove', function(e) {
+            if (drag && (getMousePos(graph, e).x <= 625) && getMousePos(graph, e).x >= 175 && getMousePos(graph, e).y >= 175 && getMousePos(graph, e).y <= 625) {
+                mousePos = getMousePos(graph, e);
+                allMove(e, false, false, true);
+            }
+            else if (drag){
+                if (getMousePos(graph, e).x<=100 && getMousePos(graph, e).x >=50 && getMousePos(graph, e).y>=175 && getMousePos(graph, e).y<=625){
+                    mousePos = getMousePos(graph, e);
+                    allMove(e, false, true, false);
+                }
+                else if(getMousePos(graph, e).y >=700&& getMousePos(graph, e).y <=750 && getMousePos(graph, e).x>=175 && getMousePos(graph, e).x<=625){
+                    mousePos = getMousePos(graph, e);
+                    allMove(e, true, false, true);
+
+            }
+        }
+            
+        }, false);
+        graph.addEventListener('mouseup', function(e) {
+            drag = false;
+        }, false);
+
+        /*draws circle*/
+
+        c_graph.font = "bold 20px Didact Gothic";
+        drawGrid();
+        /*red color*/
+        c_graph.fillStyle = "#E15151";
+        c_graph.strokeStyle = "#E15151";
+        c_graph.beginPath();
+        c_graph.arc(circle[0], circle[1], 10, 0, 2 * Math.PI);
+        c_graph.stroke();
+        c_graph.fill();
+
+        /*draws x and y axis circles*/
+        c_graph.beginPath();
+        c_graph.arc(circleX[0], circleX[1], 10, 0, 2 * Math.PI);
+        c_graph.stroke();
+        c_graph.fill();
+
+        c_graph.beginPath();
+        c_graph.arc(circleY[0], circleY[1], 10, 0, 2 * Math.PI);
+        c_graph.stroke();
+        c_graph.fill();
+
+        function allMove(e, xMove, yMove, cMove){
+            c_graph.clearRect(0, 0, 800, 800);
+            if (drag && xMove){
+                circleX[0] = mousePos.x;
+                circleX[1] = 725;
+                circle[0] = circleX[0];
+            }
+            else if (drag && yMove){
+                circleY[0] = 75
+                circleY[1] = mousePos.y;
+                circle[1] = circleY[1];
+            }
+            else if (drag && cMove){
+                
+                circle[0] = mousePos.x;
+                circle[1] = mousePos.y;
+                circleX = [circle[0], 725];
+                circleY = [75, circle[1]];
+            }
+            c_graph.lineWidth = 3;
+            c_graph.strokeStyle = "#E15151";
+            c_graph.fillStyle = "#E15151";
+            c_graph.beginPath();
+            c_graph.arc(circle[0], circle[1], 10, 0, 2 * Math.PI);
+            c_graph.stroke();
+            c_graph.fill();
+
+            /*draws x and y axis circles*/
+            c_graph.beginPath();
+            c_graph.arc(circleX[0], circleX[1], 10, 0, 2 * Math.PI);
+            c_graph.stroke();
+            c_graph.fill();
+
+            c_graph.beginPath();
+            c_graph.arc(circleY[0], circleY[1], 10, 0, 2 * Math.PI);
+            c_graph.stroke();
+            c_graph.fill();
+
+            drawGrid();
+
+            c_graph.lineWidth = 3;
+            c_graph.strokeStyle = "#E15151";
+            c_graph.fillStyle = "#E15151";
+            c_graph.beginPath();
+            c_graph.arc(circle[0], circle[1], 10, 0, 2 * Math.PI);
+            c_graph.stroke();
+            c_graph.fill();
+
+            /*draws x and y axis circles*/
+            c_graph.beginPath();
+            c_graph.arc(circleX[0], circleX[1], 10, 0, 2 * Math.PI);
+            c_graph.stroke();
+            c_graph.fill();
+
+            c_graph.beginPath();
+            c_graph.arc(circleY[0], circleY[1], 10, 0, 2 * Math.PI);
+            c_graph.stroke();
+            c_graph.fill();
+
+             if (document.getElementById("linA").checked){
+                c_graph.lineWidth = 5;
+                c_graph.strokeStyle = "#E15151";
+                c_graph.beginPath();
+                c_graph.moveTo(startPos1.x, startPos1.y);
+                c_graph.lineTo(circle[0], circle[1]);
+                c_graph.stroke(); 
+                c_graph.moveTo(startPos1.x, 725);
+                c_graph.lineTo(circleX[0], circleX[1]);
+                c_graph.stroke(); 
+                c_graph.moveTo(75, startPos1.y);
+                c_graph.lineTo(circleY[0], circleY[1]);
+                c_graph.stroke(); 
+                c_graph.strokeStyle = "#E15151";
+                c_graph.lineWidth = 3;
+
+            }
+        }
+
+
+    /*    function circleMove() {
+            c_graph.clearRect(0, 0, 800, 800);
+            drawGrid();
+            if (drag) {
+                circle[0] = mousePos.x;
+                circle[1] = mousePos.y;
+            }
+            c_graph.beginPath();
+            c_graph.arc(circle[0], circle[1], 10, 0, 2 * Math.PI);
+            c_graph.clearRect(0, 0, 800, 800);
+
+            drawGrid();
+            c_graph.fill();
+            c_graph.stroke();  
+
+           
+                
+        }
+*/
+        function drawGrid() {
+            c_graph.strokeStyle = "#33202A";
+            c_graph.lineWidth = 5;
+            /*draws sliders*/
+            c_graph.beginPath();
+            c_graph.moveTo(75,175);
+            c_graph.lineTo(75,625);
+            c_graph.stroke();
+            c_graph.beginPath();
+            c_graph.moveTo(175,725);
+            c_graph.lineTo(625,725);
+            c_graph.stroke();
+            /*draws the left and bottom axes*/
+            c_graph.beginPath();
+            c_graph.moveTo(175, 175);
+            c_graph.lineTo(175, 625);
+            c_graph.stroke();
+            c_graph.beginPath();
+            c_graph.moveTo(175, 625);
+            c_graph.lineTo(625, 625);
+            c_graph.stroke();
+
+            /*make small green box on bottom left*/
+            /*c_graph.fillStyle = "#878E88";
+            c_graph.fillRect(25,675, 100, 100);*/
+            c_graph.lineWidth = 1;
+            c_graph.fillStyle = "#33202A";
+            c_graph.font = "bold 20px Didact Gothic";
+
+            if (document.getElementById("linA").checked){
+                c_graph.fillStyle = "#33202A";
+                c_graph.fillText("d\u03B81 = " + (theta1-theta1start).toFixed(2), 40, 725);
+                c_graph.fillText("d\u03B82 = " + (theta2-theta2start).toFixed(2), 40, 675);
+                c_graph.fillStyle = "#33202A";
+
+            }
+            /*make vertical graph 6 lines with labels*/
+            for (i = 1; i < 7; i++) {
+                c_graph.font = "bold 20px Didact Gothic";
+                /*top labels*/
+
+                c_graph.fillText(i + "\u03C0/6", 155 + i * 75, 155);
+                /*left labels*/
+                c_graph.fillText(i + "\u03C0/6", 640, 645 - i * 75);
+
+                /*vertical lines*/
+                c_graph.beginPath();
+                c_graph.moveTo(175 + i * 75, 175);
+                c_graph.lineTo(175 + i * 75, 625);
+                c_graph.stroke();
+
+                /*horizontal*/
+                c_graph.beginPath();
+                c_graph.moveTo(175, 625 - i * 75);
+                c_graph.lineTo(625, 625 - i * 75);
+                c_graph.stroke();
+            }
+            c_graph.fillText("\u03B81", 400, 655);
+            c_graph.fillText("\u03B82", 135, 375);
+            c_graph.lineWidth = 3;
+            c_graph.strokeStyle = "#33202A";
+
+        }
+
+
+
+
+
+        /*when user clicks, doesn't autommatically change*/
+
+        /*angle sliders section*/
+        var angle = document.getElementById("angle");
+        var c_angle = angle.getContext("2d");
+        var isSliding = false;
+        window.mousePos = getMousePos(angle, 'mousemove');
+        window.c1 = [100, 250]
+        window.c2 = [100, 350]
+        var is1 = false;
+        var is2 = false;
+        
+
+        function getMousePos(canvas, evt) {
+            var rect = canvas.getBoundingClientRect();
+            return {
+                x: evt.clientX - rect.left,
+                y: evt.clientY - rect.top
+            };
+        }
+
+        /*draw circle function*/
+        function drawCircle(x, y, a,b, theta) {
+            c_angle.fillStyle = "#FFFBDB";
+            c_angle.strokeStyle = "#FFFBDB";
+            
+            c_angle.beginPath();
+            c_angle.arc(x, y, 10, 0, theta);
+            c_angle.clearRect(0, 0, 600, 600);
+            drawLine();
+            c_angle.arc(a, b, 10, 0, theta);
+            c_angle.stroke();
+            c_angle.fill();
+        }
+
+
+        function drawLine() {
+            /*lines are 400 pixels long*/
+            var num = 1;
+            c_angle.font = "30px Didact Gothic";
+            c_angle.fillStyle = "#FFFBDB";
+            c_angle.fillText("\u03B81", 30, 260);
+            c_angle.fillText("\u03B82", 30, 360);
+
+            c_angle.font = "20px Didact Gothic";
+            c_angle.fillText("0", 100, 225);
+            c_angle.fillText("\u03C0", 490, 225);
+
+            c_angle.fillText("0", 100, 325);
+            c_angle.fillText("\u03C0", 490, 325);
+
+
+            /*draws line for theta1*/
+            
+            c_angle.lineWidth = 5;
+            c_angle.moveTo(100, 250);
+            c_angle.lineTo(500, 250);
+            /*draws line for theta2*/
+            c_angle.moveTo(100, 350);
+            c_angle.lineTo(500, 350);
+            
+            c_angle.stroke();
+        }
+
+        /*draws circle/mover for theta1 and theta 2, draws lines*/
+        drawLine();
+        c_angle.strokeStyle = "#FFFBDB";
+        drawCircle(c1[0], c1[1],c2[0], c2[1], 2 * Math.PI);
+
+        function sliderFunction(evt) {
+            
+            if (isSliding) {
+                mousePos = getMousePos(angle, evt);
+                if (mousePos.x >= 100 && mousePos.x <= 500) {
+                    c_angle.clearRect(0, 0, 600, 600);
+                    drawLine();
+                    if (mousePos.y >= 240 && mousePos.y <= 260) {
+                        is1 = true;
+                        is2 = false;
+                        c1[0] = mousePos.x;
+                    } else if (mousePos.y >= 340 && mousePos.y <= 360) {
+                        is2 = true;
+                        is1 = false;
+                        c2[0] = mousePos.x;
+                    }
+
+                    drawCircle(c1[0], c1[1],c2[0], c2[1], 2 * Math.PI);
+
+                }
+            }
+            if (document.getElementById("linA").checked){
+                c_angle.lineWidth = 5;
+                c_angle.strokeStyle = "#EF476F";
+                if (is1){
+                    c_angle.beginPath();
+                    c_angle.moveTo(startPos1.x, 250);
+                    c_angle.lineTo(c1[0],250);
+                    c_angle.stroke();
+                    c_angle.fillText("d\u03B81 = " + (range[0] * (c1[0] - startPos1.x) / 400).toFixed(2), 250, 220);
+
+
+                }
+                else if (is2){
+                    c_angle.beginPath();
+                    c_angle.moveTo(startPos2.x, 350);
+                    c_angle.lineTo(c2[0], 350);
+                    c_angle.stroke();
+                    c_angle.fillText("d\u03B82 = " + (range[0] * (c2[0] - startPos2.x) / 400).toFixed(2), 250, 330);
+
+                }
+                c_angle.strokeStyle = "#FFFBDB";
+            }
+
+
+        }
+        var startPos1, startPos2, endPos;
+
+        angle.addEventListener('mousedown', function(e) {
+            mousePos = getMousePos(angle, e);
+            isSliding = true;
+            if (mousePos.y >= 240 && mousePos.y <= 260) {
+                        is1 = true;
+                        is2 = false;
+                        startPos1 = mousePos;
+                        startPos2 = {x: c2[0], y: c2[1]};
+                    }
+            else if (mousePos.y >= 340 && mousePos.y <= 360) {
+                        is2 = true;
+                        is1 = false;
+                        startPos2 = mousePos;
+                        startPos1 = {x: c1[0], y: c1[1]};
+                    }
+            
+            
+            sliderFunction(e)
+        }, false);
+        angle.addEventListener('mousemove', sliderFunction, false);
+        angle.addEventListener('mouseup', function() {
+            isSliding = false;
+
+        }, false);
+    /*angle.addEventListener('mousedown', function() {
+            if (getMousePos(angle, 'mousedown').x >= 100 && getMousePos(angle, 'mousedown').x <= 500){
+                if (getMousePos(angle, 'mousedown').y >= 240 && getMousePos(angle, 'mousedown').y <= 260) {
+                        mousePos.x=getMousePos(angle, 'mousemove').x;
+                    } else if (getMousePos(angle, 'mousemove').y >= 340 && getMousePos(angle, 'mousemove').y <= 360) {
+                        mousePos.x=getMousePos(angle, 'mousemove').x;
+                    }
+            }
+            mousePos = getMousePos(angle, 'mousemove');
+            isSliding = true;
+        }, false);
+        angle.addEventListener('mousemove', sliderFunction, false);
+        angle.addEventListener('mouseup', function() {
+            isSliding = false;
+        }, false);*/
+
+
+
+
+        /*arm parts*/
+
+        var arm = document.getElementById("arm");
+        var c_arm = arm.getContext("2d");
+
+
+        /*initialize variables*/
+        var origin = [300, 500];
+        var theta1, theta2;
+        var polar1, polar2;
+        var pivot;
+        var end;
+        var r = 150;
+        var range = [Math.PI, Math.PI];
+        drawArm();
+
+        var dx, dy, theta1start, theta2start, polar1start, polar2start, pivotstart, endstart;
+        /*var dx = -r*(Math.sin(theta1)+Math.sin(theta1 + theta2))*dtheta1 + (-r*Math.sin(theta1 + theta2))*dtheta2;
+        var dy = r*(Math.cos(theta1)+Math.cos(theta1 + theta2))*dtheta1 + (r*Math.cos(theta1 + theta2))*dtheta2;*/
+
+
+        /*rotation: input is angle polar coord, origin, radius. output is new point*/
+        function rotate(polar, o, radius) {
+            var point = [0, 0];
+
+            point[0] = o[0] + radius * polar[0];
+            point[1] = o[1] - radius * polar[1];
+
+            return point;
+        }
+
+
+        /*axes on top right stuff*/
+        function drawAxes() {
+            c_arm.strokeStyle = "#E15151";
+            c_arm.lineWidth = 3;
+            c_arm.beginPath();
+            c_arm.moveTo(600,50);
+            c_arm.lineTo(600,100);
+            c_arm.lineTo(650,100);
+            c_arm.stroke();
+            c_arm.font = "bold 20px Didact Gothic";
+            c_arm.fillStyle = "#33202A";
+            c_arm.fillText("dx", 610, 130);
+            c_arm.fillText("dy", 570,75);
+
+        }
+
+        /*all angle stuff*/
+        function drawAngles() {
+            /*draw angles in black/dark dark red*/
+            c_arm.lineWidth = 2;
+            c_arm.strokeStyle = "#33202A";
+            /*draw angle labels*/
+            c_arm.font = "20px Didact Gothic";
+            c_arm.fillStyle = "#33202A";
+            c_arm.fillText("\u03B81 = " + (theta1 / Math.PI).toFixed(2) + "\u03C0", origin[0] + 40, origin[1]);
+            c_arm.fillText("\u03B82 = " + (theta2 / Math.PI).toFixed(2) + "\u03C0", pivot[0] + 40, pivot[1]);
+
+            c_arm.beginPath();
+            c_arm.moveTo(origin[0], origin[1]); /*start pos*/
+            c_arm.lineTo(origin[0] + 30, origin[1]); /*end pos*/
+            c_arm.stroke();
+            c_arm.beginPath();
+            c_arm.arc(origin[0], origin[1], 30, 2 * Math.PI - theta1, 2 * Math.PI);
+            c_arm.stroke();
+
+            c_arm.beginPath();
+            c_arm.arc(pivot[0], pivot[1], 30, 2 * Math.PI - theta2 - theta1, 2 * Math.PI - theta1);
+            c_arm.stroke();
+            c_arm.beginPath();
+            c_arm.moveTo(pivot[0], pivot[1]); /*start pos*/
+            c_arm.lineTo(pivot[0] + 30 * Math.cos(theta1), pivot[1] - 30 * Math.sin(theta1)); /*end pos*/
+            c_arm.stroke();
+        }
+
+        function drawArm(evt) {
+
+            /*determine theta values from sliders, need to update every time*/
+            c_arm.clearRect(0, 0, 800, 800);
+
+            if (document.getElementById("s").selected) {
+                theta1 = range[0] * (c1[0] - 100) / 400;
+                theta2 = range[1] * (c2[0] - 100) / 400;
+            } else {
+                theta1 = range[0] * (circle[0] - 175) / 450;
+                theta2 = range[1] * (625 - circle[1]) / 450;
+                /*put down position of circle*/
+            }
+
+
+            polar1 = [Math.cos(theta1), Math.sin(theta1)];
+            polar2 = [Math.cos(theta2 + theta1), Math.sin(theta2 + theta1)];
+
+            /*finds new coord of rotated shtuff*/
+            pivot = rotate(polar1, origin, r);
+            end = rotate(polar2, pivot, r);
+
+            c_arm.lineWidth = 5;
+            /*resets color to blackish*/
+            c_arm.strokeStyle = "#33202A";
+
+            /*draw a line from origin to pivot*/
+            c_arm.beginPath();
+            c_arm.moveTo(origin[0], origin[1]); /*start pos*/
+            c_arm.lineTo(pivot[0], pivot[1]); /*end pos*/
+            c_arm.stroke();
+
+
+
+            /*draw line from pivot to end*/
+            c_arm.beginPath();
+            c_arm.moveTo(pivot[0], pivot[1]); /*start pos*/
+            c_arm.lineTo(end[0], end[1]); /*end pos*/
+            c_arm.stroke();
+
+            if (document.getElementById("check").checked) {
+                drawAngles();
+            }
+
+            /*linear approximation*/
+            if (document.getElementById("linA").checked){
+                drawAxes();
+                if (document.getElementById("s").selected) {
+                    theta1start = range[0] * (startPos1.x - 100) / 400;
+                    theta2start = range[1] * (startPos2.x - 100) / 400;
+                }
+                else{
+                    theta1start = range[0] * (startPos1.x - 175) / 450;
+                    theta2start= range[1] * (625 - startPos1.y) / 450;
+                }
+                
+                var dtheta1 = theta1 - theta1start;
+                var dtheta2 = theta2 - theta2start;
+                dx = -r*(Math.sin(theta1)+Math.sin(theta1 + theta2))*dtheta1 + (-r*Math.sin(theta1 + theta2))*dtheta2;
+                dy = r*(Math.cos(theta1)+Math.cos(theta1 + theta2))*dtheta1 + (r*Math.cos(theta1 + theta2))*dtheta2;
+                polar1start = [Math.cos(theta1start), Math.sin(theta1start)];
+                polar2start = [Math.cos(theta2start + theta1start), Math.sin(theta2start + theta1start)];
+                pivotstart = rotate(polar1start, origin, r);
+                endstart = rotate(polar2start, pivotstart, r);
+                c_arm.lineWidth = 4;
+                c_arm.strokeStyle = "#E15151";
+                c_arm.beginPath();
+                c_arm.moveTo(endstart[0], endstart[1]);
+                c_arm.lineTo(endstart[0] + dx, endstart[1] - dy);
+                c_arm.stroke();
+                c_arm.beginPath();
+                c_arm.setLineDash([5,10]);
+                c_arm.moveTo(endstart[0], endstart[1]);
+                c_arm.lineTo(endstart[0] + dx, endstart[1]);
+                c_arm.moveTo(endstart[0], endstart[1]);
+                c_arm.lineTo(endstart[0], endstart[1]-dy);
+                c_arm.stroke();
+                c_arm.setLineDash([]);
+
+
+                /*figure out how to make triangle*/
+                /*c_arm.lineTo(rotate([endstart[0] + dx, endstart[1] - dy], [Math.cos(Math.PI/6));*/
+                c_arm.strokeStyle = "#33202A";
+                c_arm.lineWidth = 5;
+
+
+            }
+
+        }
+
+        angle.addEventListener('mousemove', drawArm, false);
+        graph.addEventListener('mousemove', drawArm, false);
+    </script>
+
+</body>
+
+</html>

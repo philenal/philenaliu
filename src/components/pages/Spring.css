@@ -1,0 +1,23 @@
+.Spring-title2 {
+    font-family: 'Playfair Display', serif;
+    font-size: var(--xl);
+    color: var(--silver-pink);
+    margin: auto;
+    text-align: center;
+    width: 100%;
+    margin-top: var(--l);
+    margin-bottom: var(--s);
+    cursor: pointer;
+}
+.Spring-title2:hover {
+    color: var(--linen);
+    transition-duration: 1s;
+}
+.c {
+    position: absolute;
+    will-change: transform, opacity;
+  }
+
+.Spring-gallery {
+    display: block;
+}
