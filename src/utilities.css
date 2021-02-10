@@ -15,6 +15,7 @@
   --baby-powder: #fbfefbff;
 
   --background: rgba(243, 216, 199, 0.2);
+  --xxs:8px;
   --xs: 20px;
   --s: 24px;
   --m: 36px;
@@ -22,7 +23,39 @@
   --xl: 144px;
   --xxl: 288px;
 }
-
+@media only screen and (max-width: 1370px) {
+  :root {
+    --xxs:8px;
+    --xs: 16px;
+    --s: 20px;
+    --m: 24px;
+   --l: 36px;
+    --xl: 72px;
+    --xxl: 144px;
+  }
+}
+@media only screen and (max-width: 375px) {
+  :root {
+    --xxs:8px;
+    --xs: 12px;
+    --s: 20px;
+    --m: 24px;
+   --l: 36px;
+    --xl: 36px;
+    --xxl: 36px;
+  }
+}
+.link {
+  color: var(--silver-pink);
+  font-size: var(--s);
+  transition: all .2s ease-in-out;
+}
+.link:hover {
+  color: var(--unbleached-silk);
+}
+.space {
+  height: 70px;
+}
 .title {
   font-family: 'Playfair Display', serif;
   color: var(--linen);

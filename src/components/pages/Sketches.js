@@ -43,6 +43,7 @@ function Sketches() {
             </div> */}
             
             <div className="Sketches-page">
+            <div className="space"></div>
                <div className="Sketches-title1">
                         sketches
                     </div> 
@@ -284,6 +285,7 @@ function Sketches() {
                 <div className="break"></div>
             </div>
             <div className="Sketches-click">
+            <div className="space"></div>
                 click to see
                 <div className="Sketches-projects">projects</div>
             </div>

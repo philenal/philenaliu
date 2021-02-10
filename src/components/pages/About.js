@@ -1,31 +1,24 @@
 import React, { Component } from "react";
 import "./About.css";
 import { Parallax, ParallaxLayer } from 'react-spring/renderprops-addons.cjs'
-import { useSpring, animated as a } from 'react-spring'
 import ScrollAnimation from 'react-animate-on-scroll';
-import key from "../../../src/key.png";
-import badminton from "../../../src/badminton.gif";
-/* class About extends Component {
-    render() {
-        return (
-            <div className="About-page">
-               heyo
-               
-            </div>
-
-        );
-    }
-}
- */
 
 class About extends Component {
     render() {
         return(
             <>
-        <div className="About-title">
+            <ScrollAnimation animateIn="fadeIn">
+            <div className="About-title">
             about
         </div>
         <Parallax ref={ref => (this.parallax = ref)} pages={10} style={{background: 'var(--baby-powder)'}}>
+        <ParallaxLayer
+          offset={0}
+          speed={0.5}
+          onClick={() => this.parallax.scrollTo(0)}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'right', width: '100vw'}}>
+          <div className="About-scroll">scroll for info ;)</div>
+        </ParallaxLayer>
         {/* me */}
         <ParallaxLayer
           offset={1}
@@ -45,7 +38,7 @@ class About extends Component {
           offset={1}
           speed={0.3}
           onClick={() => this.parallax.scrollTo(2)}>
-              <img src="PL.jpg" style={{ display: "block", marginLeft: "40%", width: '40%', opacity: 0.2}} />
+              <img id="PL" src="PL.jpg" style={{ display: "block", marginLeft: "40%", width: '40%', opacity: 0.2}} />
         </ParallaxLayer>
 
         {/* badminton */}
@@ -123,9 +116,9 @@ class About extends Component {
               <div className="u-flexColumn About-full">
             <div className="About-contact">contact</div>
             <div className="u-flex About-links">
-                <a className="About-link" href="https://www.linkedin.com/in/philena-liu/">linkedin</a>
-                <a className="About-link" href="https://www.facebook.com/philenaliu">facebook</a>
-                <a className="About-link" href="https://www.instagram.com/liup1134/">insta</a>
+                <button className="About-link" href="https://www.linkedin.com/in/philena-liu/">linkedin</button>
+                <button className="About-link" href="https://www.facebook.com/philenaliu">facebook</button>
+                <button className="About-link" href="https://www.instagram.com/liup1134/">insta</button>
               </div>
               </div>
         </ParallaxLayer>
@@ -136,6 +129,8 @@ class About extends Component {
         </ParallaxLayer> */}
       </Parallax>
 
+            </ScrollAnimation>
+       
       </>
     )
   }

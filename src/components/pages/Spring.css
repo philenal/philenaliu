@@ -9,6 +9,9 @@
     margin-bottom: var(--s);
     cursor: pointer;
 }
+.carousel-control-prev-icon {
+    background-image: none !important;
+}
 .Spring-title2:hover {
     color: var(--linen);
     transition-duration: 1s;

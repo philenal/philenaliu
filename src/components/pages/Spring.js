@@ -4,6 +4,7 @@ import Projects from "./Projects.js"
 import Sketches from "./Sketches.js"
 import Carousel from 'react-bootstrap/Carousel'
 import "./Spring.css"
+import ScrollAnimation from 'react-animate-on-scroll';
 export default function Spring(props) {
     /* const [flipped, set] = useState(false)
   const { transform, opacity } = useSpring({
@@ -13,19 +14,22 @@ export default function Spring(props) {
   }) */
     return(
         <>
-        <Carousel
-          interval={null}
-          indicators={false}
-          nextIcon={<span aria-hidden="true" ></span>}
-         /*  nextLabel={activeIndex} */>
-            
-          <Carousel.Item>
-            <Projects/>
-          </Carousel.Item>
-          <Carousel.Item>
-            <Sketches/>
-          </Carousel.Item>
-        </Carousel>
+        <ScrollAnimation animateIn="fadeIn" duration="2">
+          <Carousel
+            interval={null}
+            indicators={false}
+            nextIcon={<span aria-hidden="true"></span>}
+          /*  nextLabel={activeIndex} */>
+              
+            <Carousel.Item>
+              <Projects/>
+            </Carousel.Item>
+            <Carousel.Item>
+              <Sketches/>
+            </Carousel.Item>
+          </Carousel>
+        </ScrollAnimation>
+        
         {/* <div className="Spring-title2" onClick={() => set(state => !state)}>{flipped==false ? "sketches" : "projects"}</div>
       <a.div class="c back" style={{ display: flipped ? "none": "block", opacity: opacity.interpolate(o => 1 - o), transform }}><Projects/></a.div>
       <a.div class="c front" style={{ opacity, transform: transform.interpolate(t => `${t} rotateX(180deg)`) }}><Sketches/></a.div> */}

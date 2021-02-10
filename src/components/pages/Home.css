@@ -75,6 +75,25 @@
     flex-direction: column;
     justify-content: flex-start;
 }
+.Home-column {
+  display: flex;
+  flex-direction: row;
+
+}
+@media only screen and (max-width: 736px) {
+  .Home-column {
+    flex-direction: column !important;
+  }
+  .Home-bioContainer {
+    margin-top: var(--s);
+    margin-bottom: var(--s);
+  }
+}
+@media only screen and (max-width: 375px) {
+  .Home-border {
+    display: none
+  }
+}
 .Home-title {
   font-family: 'Playfair Display', serif;
   color: var(--linen);
@@ -91,11 +110,15 @@
   background: var(--linen);
 background: linear-gradient(0deg, var(--linen) 0%, rgba(243,216,199,0.2) 100%);
 }
-
+.Home-bioContainer {
+  display: flex;
+  flex-direction: row;
+}
 .Home-bio {
-  height: 1em !important;
-  align-self: center;
-  display: inline-flex;
+  /* height: 1em !important; */
+  /* display: inline-flex; */
+  margin: auto;
+  margin-left: 0;
   justify-content: space-around;
   flex-direction: column;
   font-size: var(--xs);

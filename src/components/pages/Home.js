@@ -31,6 +31,7 @@ class Home extends Component {
     render() {
         return (
                 <div onScroll={this.handleScroll} className="Home-page">
+                    <div className="space"></div>
                     <div className="Home-container">
                         <ScrollAnimation animateIn="fadeIn">
                             <div className="Home-title Home-padding">
@@ -44,17 +45,20 @@ class Home extends Component {
                                     onScroll={this.handleScroll}
                                     afterAnimatedIn={ this.afterAnimatedIn} 
                                     delay="400">
-                            <div className="Home-padding u-flex title">
+                            <div className="Home-padding Home-column title">
                                 <div className="Home-name">
                                     i'm philena liu 
                                 </div>
-                                <span className="Home-border"></span>
-                                <div className="Home-bio">
-                                    <div>math + cs</div>
-                                    <div>mit '24</div>
-                                    <div>__________________</div>   
-                                    <div>philena@mit.edu</div>  
+                                <div className="Home-bioContainer">
+                                    <span className="Home-border"></span>
+                                    <div className="Home-bio">
+                                        <div>math + cs</div>
+                                        <div>mit '24</div>
+                                        <div>__________________</div>   
+                                        <div>philena@mit.edu</div>  
+                                    </div>
                                 </div>
+                                
                             </div>
                         </ScrollAnimation>
                             <div className="Home-padding Home-keyboard">

@@ -34,6 +34,7 @@ function Projects() {
             <div className="Projects-sketches">sketches</div>
             </div> */}
             <div className="Projects-page">
+            <div className="space"></div>
                 <div className="Projects-title1">
                         projects
                 </div>
@@ -67,7 +68,7 @@ function Projects() {
                             setModalShow("pixonary");
                             setYear("2021")
                             setBody("a collaborative drawing game without competitive pressure. find a group of friends of any artistic ability and make some pixel art together! co-created with lucy zhang '21.");
-                            setUsed("reactjs + google oauth + express + socketio + materialui + mongodb + css")
+                            setUsed("reactjs | google oauth | express | socketio | materialui | mongodb | css")
                             setImage("pixonaryLight")
                             }}>
                             <img src={pixonaryLight} alt="pixonary" className="Projects-image" width="300px" height="300px"></img>
@@ -80,7 +81,7 @@ function Projects() {
                             setModalShow("robot arm: canvas");
                             setYear("2020")
                             setBody("first version of js applet for visualizing a parametric equation and its linear approximation.");
-                            setUsed("html canvas + css")
+                            setUsed("html canvas | css")
                             setImage("roboarm")
                             }}>
                             <img src={roboarm} alt="roboArm" className="Projects-image" width="300px" height="300px"></img>
@@ -92,7 +93,7 @@ function Projects() {
                             setModalShow("robot arm: mathlets");
                             setYear("2020")
                             setBody("second version of js applet for visualizing a parametric equation and its linear approximation.");
-                            setUsed("mit mathlets.js + html + css")
+                            setUsed("mit mathlets.js | html | css")
                             setImage("newRobotArm")
                             }}>
                             <img src={newRobotArm} alt="newRobotArm" className="Projects-image" width="300px" height="300px"></img>
@@ -104,7 +105,7 @@ function Projects() {
                             setModalShow("math modeling");
                             setYear("2020")
                             setBody("3rd place team in National Mathworks Math Modeling Challenge. modeled the transition from diesel to electric trucking with the Lotka-Volterra approach. wrote a final paper that was presented on in a video.");
-                            setUsed("excel + matlab + latex")
+                            setUsed("excel | matlab | LaTeX")
                             setImage("modeling")
                             }}>
                             <img src={modeling} alt="modeling" className="Projects-image" width="300px" height="300px"></img>
@@ -116,7 +117,7 @@ function Projects() {
                             setModalShow("PROMYS math research");
                             setYear("2019")
                             setBody("worked in group of 4 at PROMYS to create conjectures about the fibonacci numbers and build their proofs without reference to external resources");
-                            setUsed("latex")
+                            setUsed("LaTeX")
                             setImage("promys")
                             }}>
                             <img src={promys} alt="promys" className="Projects-image" width="300px" height="300px"></img>
@@ -128,7 +129,7 @@ function Projects() {
                             setModalShow("chinese culture connection");
                             setYear("2020")
                             setBody("worked in group of 5 to create a website for a nonprofit organization. mainly worked on frontend development.");
-                            setUsed("html + css")
+                            setUsed("html | css")
                             setImage("ccc")
                             }}>
                             <img src={ccc} alt="ccc" className="Projects-image" width="300px" height="300px"></img>
@@ -156,6 +157,7 @@ function Projects() {
                 <div className="break"></div>
             </div>
             <div className="Projects-click">
+            <div className="space"></div>
               click to see
             <div className="Projects-sketches">sketches</div>
             </div>

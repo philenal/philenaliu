@@ -33,6 +33,13 @@
     font-size: var(--s);
     text-align: center;
 }
+@media only screen and (max-width: 375px) {
+    .Projects-click {
+        font-size: var(--xxs) !important;
+        word-wrap: break-word;
+    }
+  }
+
 .Projects-click {
     padding-top: var(--m);
     color: var(--silver-pink);
@@ -66,6 +73,7 @@
     background-color: var(--unbleached-silk);
     
 }
+
 .Projects-titleRow {
     display: flex;
     flex-direction: row;

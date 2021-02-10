@@ -17,27 +17,32 @@ export default function ProjectModal(props) {
   let link;
   let video;
   let image;
+  let linkText;
   if (props.image =="pixonaryLight") {
     image = pixonaryLight;
     link="https://pixonary.herokuapp.com/"
+    linkText="click to play the game!"
   } else if (props.image=="roboarm") {
    /*  link=canvasRobotArmLink; */
    link="arm.html";
     image=roboarm;
+    linkText="click to try it out!"
   } else if (props.image=="newRobotArm") {
     image=newRobotArm
-    link="arm.html";
+    link="#";
   } else if (props.image=="modeling") {
     image=modeling
+    linkText="click to read our paper!"
     link = "https://m3challenge.siam.org/sites/default/files/uploads/M3%20THIRD%20PLACE_13202.pdf"
     video="https://www.youtube.com/embed/bUN2alQKAY0"
     
   } else if (props.image=="promys") {
+    linkText="click to read our paper!"
     image=promys
     link=promysPdf
   } else if (props.image=="ccc") {
     image=ccc
-    link=promysPdf
+    link="#"
   } else {
     image=""
   }
@@ -58,8 +63,8 @@ export default function ProjectModal(props) {
             <h4><b>{props.year}</b></h4>
             <p>{props.body}</p>
             <p><b>{props.used}</b></p>
+            {link == "#" ? <span></span>: <a className="link" href={link}>{linkText}</a>}
             
-            <a  href={link}>click to view</a>
           </div>
           
           <div className="ProjectModal-image">
