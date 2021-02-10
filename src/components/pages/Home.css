@@ -131,7 +131,6 @@ background: linear-gradient(0deg, var(--linen) 0%, rgba(243,216,199,0.2) 100%);
     width: 90%;
     /* filter: blur(1px);
   -webkit-filter: blur(1px); */
-  opacity: .5;
   transform: rotate(-1deg);
   filter:hue-rotate(10deg);
 
