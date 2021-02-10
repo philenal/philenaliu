@@ -25,37 +25,117 @@ class About extends Component {
         <div className="About-title">
             about
         </div>
-        <Parallax ref={ref => (this.parallax = ref)} pages={3} style={{background: 'var(--baby-powder)'}}>
-        <ParallaxLayer
-          offset={.7}
-          speed={0.1}
-          onClick={() => this.parallax.scrollTo(0)}
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <img src="badminton.gif" style={{ width: '80%' }} />
-        </ParallaxLayer>
-        <ParallaxLayer
-          offset={1}
-          speed={0.2}
-          onClick={() => this.parallax.scrollTo(0)}
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <div className="About-hobbies">badminton</div>
-        </ParallaxLayer>
+        <Parallax ref={ref => (this.parallax = ref)} pages={10} style={{background: 'var(--baby-powder)'}}>
+        {/* me */}
         <ParallaxLayer
           offset={1}
           speed={0.5}
+          onClick={() => this.parallax.scrollTo(3)}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'right', width: '100vw'}}>
+          <div className="About-hobbies">me</div>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={1.5}
+          speed={0.2}
+          onClick={() => this.parallax.scrollTo(3)}>
+          <div className="About-blurb">
+              an mit'24 student majoring in math with computer science (18c). currently involved in borderline (pub chair) and hmmt (marketing staff). interested in webdev, art, badminton, and <span className="About-tiny">binge watching kdramas/anime/cdramas/webtoons/theflash, listening to kpop, whistling, and eating.</span></div>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={1}
+          speed={0.3}
+          onClick={() => this.parallax.scrollTo(2)}>
+              <img src="PL.jpg" style={{ display: "block", marginLeft: "40%", width: '40%', opacity: 0.2}} />
+        </ParallaxLayer>
+
+        {/* badminton */}
+        <ParallaxLayer
+          offset={3}
+          speed={0.2}
           onClick={() => this.parallax.scrollTo(0)}
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'right' }}>
-          <img src="badminton.gif" style={{ width: '40%' }} />
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'right', width: '100vw'}}>
+          <div className="About-hobbies">badminton</div>
         </ParallaxLayer>
 
         <ParallaxLayer
-          offset={.7}
+          offset={4.3}
           speed={0.1}
           onClick={() => this.parallax.scrollTo(0)}
-          style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-          <img src="badminton.gif" style={{ width: '80%' }} />
+          style={{ display: 'inline-block', width: '100vw'}}>
+          <img id="About-bigPlayer" src="badminton.gif" style={{ width: '80%' }} />
         </ParallaxLayer>
+        
+        <ParallaxLayer
+          offset={4.6}
+          speed={0.3}
+          onClick={() => this.parallax.scrollTo(0)}
+          style={{ display: 'inline-block', width: '100vw', marginLeft: '50%'}}>
+          <img src="badminton.gif" style={{ width: '40%' }} />
+        </ParallaxLayer>
+
+        {/* art */}
+        <ParallaxLayer
+          offset={6.3}
+          speed={0.1}
+          onClick={() => this.parallax.scrollTo(2)}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'right', width: '100vw'}}>
+          <div className="About-hobbies">art</div>
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={7.2}
+          speed={0.9}
+          onClick={() => this.parallax.scrollTo(2)}
+          style={{ display: 'inline-block', width: '100vw'}}>
+          <img src="Cloud-Swan.png" style={{ width: '50%', marginLeft:"50%" }} />
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={7.3}
+          speed={0.8}
+          onClick={() => this.parallax.scrollTo(2)}
+          style={{ display: 'inline-block', width: '100vw'}}>
+          <img src="./art/eggberry.GIF" style={{ display: "inline-block", marginLeft: "20%", width: '20%' }} />
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={7.5}
+          speed={0.6}
+          onClick={() => this.parallax.scrollTo(2)}
+          style={{ display: 'inline-block', width: '100vw'}}>
+          <img src="./art/girl.gif" style={{  display: "inline-block", marginLeft: "30%", width: '20%' }} />
+        </ParallaxLayer>
+          <ParallaxLayer
+          offset={7.8}
+          speed={0.4}
+          onClick={() => this.parallax.scrollTo(2)}
+          style={{ display: 'inline-block', width: '100vw'}}>
+          <img src="./art/baozi.PNG" style={{ display: "inline-block", marginLeft: "40%", width: '20%' }} />
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={7.9}
+          speed={0.2}
+          onClick={() => this.parallax.scrollTo(2)}
+          style={{ display: 'inline-block', width: '100vw'}}>
+          <img src="./art/slides.JPG" style={{ display: "inline-block", marginLeft: "50%", width: '20%' }} />
+        </ParallaxLayer>
+        <ParallaxLayer
+          offset={9}
+          speed={0.2}
+          style={{ display: 'flex', alignItems: 'center', justifyContent: 'right', width: '100vw', backgroundColor: 'var(--silver-pink)'}}>
+              <div className="u-flexColumn About-full">
+            <div className="About-contact">contact</div>
+            <div className="u-flex About-links">
+                <a className="About-link" href="https://www.linkedin.com/in/philena-liu/">linkedin</a>
+                <a className="About-link" href="https://www.facebook.com/philenaliu">facebook</a>
+                <a className="About-link" href="https://www.instagram.com/liup1134/">insta</a>
+              </div>
+              </div>
+        </ParallaxLayer>
+        {/* <ParallaxLayer
+          offset={9.4}
+          speed={0.1}>
+              
+        </ParallaxLayer> */}
       </Parallax>
+
       </>
     )
   }

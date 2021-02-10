@@ -37,10 +37,10 @@ function Sketches() {
             image={image}
             />
             <div className="u-flex">
-            <div className="Sketches-click">
+            {/* <div className="Sketches-click">
                 click to see
                 <div className="Sketches-projects">projects</div>
-            </div>
+            </div> */}
             
             <div className="Sketches-page">
                <div className="Sketches-title1">
@@ -63,8 +63,8 @@ function Sketches() {
                         .start();
                     }}
                     options={{
-                        wrapperClassName: "Projects-skill",
-                        cursorClassName: "Projects-skill",
+                        wrapperClassName: "Sketches-skill",
+                        cursorClassName: "Sketches-skill",
                         autoStart: true,
                         loop: true
                     }}

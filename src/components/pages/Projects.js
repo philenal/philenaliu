@@ -29,10 +29,10 @@ function Projects() {
             image={image}
       />
       <div className="u-flex">
-          <div className="Projects-click">
+          {/* <div className="Projects-click">
               click to see
             <div className="Projects-sketches">sketches</div>
-            </div>
+            </div> */}
             <div className="Projects-page">
                 <div className="Projects-title1">
                         projects
