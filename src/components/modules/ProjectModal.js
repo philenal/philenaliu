@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
-import pixonaryDark from "../../../src/pixonaryDark.PNG";
 import pixonaryLight from "../../../src/pixonaryLight.PNG";
 import roboarm from "../../../src/roboarm.PNG";
 import ccc from "../../../src/ccc.PNG";
