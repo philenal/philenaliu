@@ -57,7 +57,7 @@ export default function ProjectModal(props) {
           <div className="ProjectModal-body">
             <h4><b>{props.year}</b></h4>
             <p>{props.body}</p>
-            <p><b>{props.used}</b></p>
+            <p className="bold"><b>{props.used}</b></p>
             {link == "#" ? <span></span>: <a className="link" href={link}>{linkText}</a>}
             
           </div>

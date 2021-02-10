@@ -45,6 +45,9 @@
     --xxl: 36px;
   }
 }
+.bold {
+  font-weight: bold;
+}
 .link {
   color: var(--silver-pink);
   font-size: var(--s);
