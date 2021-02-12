@@ -7,6 +7,8 @@ import newRobotArm from "../../../src/newRobotArm.PNG";
 import modeling from "../../../src/modeling.PNG";
 import promys from "../../../src/promys.PNG";
 import promysPdf from "../links/Fibonacci_Numbers_Exploration_Lab (1).pdf";
+import teams from "../../../src/teams.PNG";
+import traffic from "../links/Traffic Poster.pdf";
 
 export default function ProjectModal(props) {
   let link;
@@ -38,6 +40,10 @@ export default function ProjectModal(props) {
   } else if (props.image=="ccc") {
     image=ccc
     link="#"
+  } else if (props.image=="teams") {
+    image=teams;
+    linkText="click to see our poster!"
+    link=traffic;
   } else {
     image=""
   }
@@ -53,13 +59,15 @@ export default function ProjectModal(props) {
             {props.title}
           </div>
         </Modal.Header>
-        <div className="ProjectModal-grid u-flex">
+        
+        <div className={props.image=="teams" ? "ProjectModal-grid u-flexColumn": "ProjectModal-grid"}>
           <div className="ProjectModal-body">
             <h4><b>{props.year}</b></h4>
             <p>{props.body}</p>
             <p className="bold"><b>{props.used}</b></p>
             {link == "#" ? <span></span>: <a className="link" href={link}>{linkText}</a>}
-            
+            <br></br>
+            {props.image=="teams" ? <a className="link" href={"https://www.statesmanshs.org/2223/features/teams-road-to-success/"}>read more about us!</a>: <span></span>}
           </div>
           
           <div className="ProjectModal-image">

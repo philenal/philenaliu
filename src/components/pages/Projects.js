@@ -7,6 +7,7 @@ import ccc from "../../../src/ccc.PNG";
 import newRobotArm from "../../../src/newRobotArm.PNG";
 import modeling from "../../../src/modeling.PNG";
 import promys from "../../../src/promys.PNG";
+import teams from "../../../src/teams.PNG";
 import Typewriter from 'typewriter-effect';
 
 function Projects() {
@@ -134,6 +135,18 @@ function Projects() {
                             <img src={ccc} alt="ccc" className="Projects-image" width="300px" height="300px"></img>
                             <div className="Projects-overlay">
                                 <div className="Projects-title">chinese culture connection</div>
+                            </div>
+                        </button>
+                        <button className="Projects-card" onClick={()=> {
+                            setModalShow("traffic mitigation proposal");
+                            setYear("2018")
+                            setBody("worked in group of 8 to present a solution for traffic congestion in our local community for the TSA TEAMS competition, ultimately placing 6th in the nation. researched innovative technologies (roundabouts, adaptive traffic lights, parking sensors, hydronics) to present a proposal with a detailed implementation timeline and budget. final solution of using roundabouts was inspired by braess's paradox.");
+                            setUsed("")
+                            setImage("teams")
+                            }}>
+                            <img src={teams} alt="teams" className="Projects-image" width="300px" height="300px"></img>
+                            <div className="Projects-overlay">
+                                <div className="Projects-title">traffic mitigation proposal</div>
                             </div>
                         </button>
                     </div>

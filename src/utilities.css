@@ -44,6 +44,10 @@
     --xl: 36px;
     --xxl: 36px;
   }
+
+  .ProjectModal-grid {
+    flex-direction: column;
+  }
 }
 .bold {
   font-weight: bold;
@@ -72,6 +76,11 @@
   text-align: center;
   margin: auto;
 }
+.ProjectModal-small {
+  font-size: var(--xs);
+  font-family: 'Lato', sans-serif;
+  color: var(--silver-pink);
+}
 .ProjectModal-body {
   padding: var(--s) 0px;
 }
@@ -85,6 +94,7 @@
 }
 .ProjectModal-grid {
   padding: var(--s);
+  display: flex;
 }
 
 h4 {
