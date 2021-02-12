@@ -105,7 +105,7 @@
     flex-wrap: wrap;
   }
 
-  @media only screen and (max-width: 375px) {
+  @media only screen and (max-width: 414px) {
     .About-blurb {
       font-size: var(--s) !important;
       width: 300px !important

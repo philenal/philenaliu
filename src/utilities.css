@@ -34,7 +34,7 @@
     --xxl: 144px;
   }
 }
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 414px) {
   :root {
     --xxs:8px;
     --xs: 12px;
