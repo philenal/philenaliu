@@ -16,7 +16,11 @@ class MyNavBar extends Component {
                         <Nav.Link className="MyNavBar-links" href="#projects">sketches | projects</Nav.Link>
                         <Nav.Link className="MyNavBar-links" href="Philena_s_Resume.pdf">resume</Nav.Link>
                         <Nav.Link className="MyNavBar-links" href="#about">about</Nav.Link>
-                   
+                        </Nav>
+                        <Nav className="ml-auto">
+                            <Navbar.Text className="MyNavBar-end">
+                                all art on this site was self-drawn :)
+                            </Navbar.Text>
                         </Nav>
                     </Navbar.Collapse>
                 </Navbar>

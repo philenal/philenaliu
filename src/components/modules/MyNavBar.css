@@ -8,7 +8,12 @@
 .MyNavBar-links:hover {
     transform: translateY(-2px);
 }
-
+.MyNavBar-end {
+    font-family: 'Lato', sans-serif;
+    font-size: var(--xs);
+    color: var(--silver-pink) !important;
+    margin-right: var(--xl);
+}
 .navbar-nav .nav-link.active {
     border-bottom: 3px solid var(--silver-pink) !important;
     transition: border-bottom .5s ease-in-out !important;
