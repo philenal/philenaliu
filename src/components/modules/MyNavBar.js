@@ -13,9 +13,10 @@ class MyNavBar extends Component {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="mr-auto">
-                        <Nav.Link className="MyNavBar-links" href="#projects">sketches | projects</Nav.Link>
-                        <Nav.Link className="MyNavBar-links" href="Philena_s_Resume.pdf">resume</Nav.Link>
                         <Nav.Link className="MyNavBar-links" href="#about">about</Nav.Link>
+                        <Nav.Link className="MyNavBar-links" href="#projects">projects</Nav.Link>
+                        <Nav.Link className="MyNavBar-links" href="#sketches">sketches</Nav.Link>
+                        <Nav.Link className="MyNavBar-links" href="Philena_s_Resume.pdf">resume</Nav.Link>
                         </Nav>
                         <Nav className="ml-auto">
                             <Navbar.Text className="MyNavBar-end">
